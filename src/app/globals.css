@@ -120,33 +120,11 @@ body {
   }
 }
 
-.section-padding-x {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-.section-padding-y {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-@media screen and (min-width: 768px) {
+@layer utilities {
   .section-padding-x {
-    padding-left: 48px;
-    padding-right: 48px;
+    @apply px-6 lg:px-8;
   }
   .section-padding-y {
-    padding-top: 44px;
-    padding-bottom: 44px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .section-padding-x {
-    padding-left: 120px;
-    padding-right: 120px;
-  }
-  .section-padding-y {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    @apply py-20 lg:py-24;
   }
 }

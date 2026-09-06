@@ -6,7 +6,7 @@ import { stats } from "../../static-data/stats.data";
 export function StatsSection() {
   return (
     <section className="relative py-12 md:py-20 overflow-hidden bg-background">
-      <div className="relative z-10 max-w-5xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-8">
           {stats.map((stat, index) => (
             <motion.div 

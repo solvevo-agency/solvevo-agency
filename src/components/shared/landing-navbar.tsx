@@ -29,7 +29,7 @@ export function LandingNavbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
-      <div className="section-padding-x flex h-16 items-center justify-between">
+      <div className="max-w-7xl mx-auto section-padding-x flex h-16 items-center justify-between w-full">
         {/* Left Side: Logo */}
         <Logo />
 

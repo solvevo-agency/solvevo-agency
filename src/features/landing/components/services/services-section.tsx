@@ -8,7 +8,7 @@ import Link from "next/link";
 export function ServicesSection() {
   return (
     <section id="services" className="relative py-24 overflow-hidden bg-background">
-      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">

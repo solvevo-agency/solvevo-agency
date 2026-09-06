@@ -39,7 +39,7 @@ const steps = [
 export function ProcessSection() {
   return (
     <section className="relative py-24 bg-muted/30">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center mb-16">
