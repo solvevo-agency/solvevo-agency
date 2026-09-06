@@ -2,24 +2,19 @@
 
 import Image from "next/image";
 import { Check } from "lucide-react";
+import { PageHeader } from "@/components/shared/page-header";
 
 export function AboutPageView() {
   return (
     <div className="bg-background min-h-screen">
-      
+
       {/* 1. Hero Section */}
       <section className="py-24 md:py-32 border-b border-border/40">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center justify-center">
-          <span className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-muted-foreground mb-6">
-            About Us
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
-            We build like it's our own<br />product.
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A senior team of design-minded builders making software that actually helps businesses grow—not stick around to maximize hours.
-          </p>
-        </div>
+        <PageHeader
+          title={<>We build like it's our own<br />product.</>}
+          description="A senior team of design-minded builders making software that actually helps businesses grow—not stick around to maximize hours."
+          className="mb-0 lg:mb-0" // Remove bottom margin since it's inside a padded section
+        />
       </section>
 
       {/* 2. Mission Section */}
@@ -42,7 +37,7 @@ export function AboutPageView() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex flex-col gap-6 justify-center">
               <div className="p-8 rounded-2xl border border-border/40 bg-card hover:shadow-sm transition-shadow">
                 <h3 className="text-lg font-bold text-foreground">
@@ -70,7 +65,7 @@ export function AboutPageView() {
               The principles we hire and build by.
             </h2>
           </div>
-          
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "Ownership", desc: "We act as if the software is our own. We take pride in the final product." },
@@ -99,7 +94,7 @@ export function AboutPageView() {
                 How we think about building software.
               </h2>
             </div>
-            
+
             <ul className="flex flex-col gap-6">
               {[
                 "Fast, reliable tech stack—we optimize for shipping velocity.",
@@ -126,15 +121,15 @@ export function AboutPageView() {
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
             <div className="w-40 h-40 md:w-56 md:h-56 bg-primary rounded-[2rem] flex items-center justify-center shrink-0 shadow-2xl relative overflow-hidden group">
               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-              <Image 
-                src="/images/solvevo-transparent.png" 
-                alt="Solvevo" 
-                width={120} 
-                height={120} 
+              <Image
+                src="/images/solvevo-transparent.png"
+                alt="Solvevo"
+                width={120}
+                height={120}
                 className="object-contain brightness-0 invert drop-shadow-md"
               />
             </div>
-            
+
             <div className="flex flex-col gap-4 max-w-2xl">
               <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground">
                 Founder Note
@@ -161,7 +156,7 @@ export function AboutPageView() {
               We're built for long-term relationships—and most of our clients keep working with us long after launch.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border/40 text-center">
             {[
               { num: "20+", label: "Apps Shipped" },
@@ -177,7 +172,7 @@ export function AboutPageView() {
           </div>
         </div>
       </section>
-      
+
     </div>
   );
 }
