@@ -3,10 +3,17 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function CtaSection() {
+  const pathname = usePathname();
+
+  if (pathname === '/careers') {
+    return null;
+  }
+
   return (
     <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">

@@ -1,6 +1,5 @@
 import { HeroSection } from "@/features/landing/components/hero/hero-section"
 import { StatsSection } from "@/features/landing/components/stats/stats-section"
-import { ServicesSection } from "@/features/landing/components/services/services-section"
 import { ProcessSection } from "@/features/landing/components/process/process-section"
 import { ValuePropSection } from "@/features/landing/components/value-prop/value-prop-section"
 import { TeamSection } from "@/features/landing/components/team/team-section"
@@ -11,7 +10,6 @@ export default function Home() {
     <>
       <HeroSection />
       <StatsSection />
-      <ServicesSection />
       <ProcessSection />
       <ValuePropSection />
       <TeamSection />
