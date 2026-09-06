@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { motion } from "motion/react";
 import { faqs } from "../../static-data/faq.data";
 import {
@@ -8,65 +7,50 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
 
 export function FaqSection() {
   return (
-    <section id="faq" className="relative py-24 overflow-hidden border-t border-border/50 dark:border-white/5">
-      {/* Ambient background glows */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] -z-10 rounded-full pointer-events-none" />
-
-      <div className="grid gap-12 lg:grid-cols-2 max-w-7xl mx-auto px-6 lg:px-8 items-center">
+    <section id="faq" className="relative py-24 bg-background">
+      <div className="max-w-3xl mx-auto px-6 lg:px-8">
         
-        {/* Left Column: Image Only */}
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative w-full h-[500px] overflow-hidden rounded-[2rem] border border-border/50 dark:border-white/10 shadow-lg dark:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
-        >
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/10 dark:via-white/30 to-transparent z-20" />
-          <Image
-            src="/images/solvevo.jpg"
-            alt="People collaborating on software designs"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-transparent opacity-60 z-10 mix-blend-multiply" />
-        </motion.div>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold tracking-tight text-foreground"
+          >
+            Everything you're probably wondering.
+          </motion.h2>
+        </div>
 
-        {/* Right Column: Title, Description, and FAQ Accordion */}
+        {/* Accordion */}
         <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="flex flex-col gap-8"
+          transition={{ delay: 0.1 }}
+          className="w-full"
         >
-          <div>
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl bg-gradient-to-br from-foreground to-foreground/70 dark:from-white dark:to-white/60 bg-clip-text text-transparent">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-muted-foreground/80 mt-4 leading-relaxed text-lg">
-              Got questions about how we work? Here are answers to some of our most common inquiries.
-            </p>
-          </div>
-
-          <div className="bg-card dark:bg-white/[0.02] border border-border/50 dark:border-white/[0.05] rounded-[2rem] p-6 sm:p-8 backdrop-blur-sm shadow-xl">
-            <Accordion className="w-full">
-              {faqs.slice(0, 5).map((faq) => (
-                <AccordionItem key={faq.id} value={`item-${faq.id}`}>
-                  <AccordionTrigger>
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-6">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <Accordion className="w-full">
+            {faqs.slice(0, 6).map((faq) => (
+              <AccordionItem key={faq.id} value={`item-${faq.id}`} className="border-border/50 py-2">
+                <AccordionTrigger className="text-lg font-medium hover:no-underline">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+          
+          <div className="mt-8 text-center">
+            <Link href="#contact" className="text-primary font-medium hover:underline">
+              Still have questions? Let's talk
+            </Link>
           </div>
         </motion.div>
       </div>

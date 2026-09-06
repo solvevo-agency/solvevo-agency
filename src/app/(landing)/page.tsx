@@ -1,11 +1,11 @@
 import { HeroSection } from "@/features/landing/components/hero/hero-section"
 import { StatsSection } from "@/features/landing/components/stats/stats-section"
 import { ServicesSection } from "@/features/landing/components/services/services-section"
-import { ProjectsSection } from "@/features/landing/components/projects/projects-section"
-import { ReviewsSection } from "@/features/landing/components/reviews/reviews-section"
+import { ProcessSection } from "@/features/landing/components/process/process-section"
+import { ValuePropSection } from "@/features/landing/components/value-prop/value-prop-section"
+import { TeamSection } from "@/features/landing/components/team/team-section"
 import { FaqSection } from "@/features/landing/components/faq/faq-section"
-import { BlogsSection } from "@/features/landing/components/blogs/blogs-section"
-import { ContactSection } from "@/features/landing/components/contact/contact-section"
+import { CtaSection } from "@/features/landing/components/cta/cta-section"
 
 export default function Home() {
   return (
@@ -13,11 +13,11 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <ServicesSection />
-      <ProjectsSection />
-      <ReviewsSection />
+      <ProcessSection />
+      <ValuePropSection />
+      <TeamSection />
       <FaqSection />
-      <BlogsSection />
-      <ContactSection />
+      <CtaSection />
     </>
   )
 }

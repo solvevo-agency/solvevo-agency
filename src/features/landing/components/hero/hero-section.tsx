@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { HeroGallery } from "./hero-gallery";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,7 +16,6 @@ export function HeroSection() {
     () => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      // Only animate the left content, as the gallery has its own internal animations
       tl.fromTo(
         ".hero-title",
         { opacity: 0, y: 30 },
@@ -46,46 +46,46 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="section-padding-x section-padding-y grid items-center gap-12 md:grid-cols-2 overflow-hidden"
+      className="section-padding-x section-padding-y grid items-center gap-12 lg:grid-cols-2 overflow-hidden max-w-7xl mx-auto"
     >
       {/* Left side: content */}
       <div className="flex flex-col gap-6 max-w-xl">
-        <h1 className="hero-title text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-foreground">
-          We design and build software that{" "}
-          <span className="bg-gradient-to-r from-primary to-indigo-500 bg-clip-text text-transparent">
-            ships.
+        <h1 className="hero-title text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-foreground leading-[1.1]">
+          We ship and build<br />
+          <span className="text-primary">
+            web apps
           </span>
         </h1>
-        <p className="hero-desc text-lg text-muted-foreground">
+        <p className="hero-desc text-lg text-muted-foreground mt-2">
           Solvevo is a premium development agency. We craft cutting-edge Next.js
           sites, mobile apps, and custom solutions with clean architecture and
           gorgeous designs.
         </p>
-        <div className="hero-cta flex flex-wrap gap-4">
+        <div className="hero-cta flex flex-wrap gap-4 mt-4">
           <Link
             href="#contact"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]",
+              "shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] rounded-full px-8",
             )}
           >
-            Start a Project
-          </Link>
-          <Link
-            href="#projects"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "transition-all hover:bg-muted hover:scale-[1.02] active:scale-[0.98]",
-            )}
-          >
-            View Our Work
+            Start project
+            <ArrowRight className="ml-2 w-4 h-4" />
           </Link>
         </div>
       </div>
 
       {/* Right side: image */}
       <div className="hero-image relative flex justify-center items-center h-full w-full">
-        <HeroGallery />
+        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-border/50">
+          <Image
+            src="/images/hero-dashboard.png"
+            alt="Dashboard UI"
+            fill
+            className="object-cover object-left-top"
+            priority
+          />
+        </div>
       </div>
     </section>
   );

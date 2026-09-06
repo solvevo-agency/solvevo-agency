@@ -1,63 +1,61 @@
 import Link from "next/link"
 import { Logo } from "./logo"
-import { landingNavLinks } from "@/config/nav.config"
 
 export function LandingFooter() {
   return (
-    <footer className="border-t bg-card text-card-foreground">
-      <div className="section-padding-x py-12 grid gap-8 md:grid-cols-4">
-        {/* Brand Column */}
-        <div className="flex flex-col gap-4 md:col-span-2">
-          <Logo />
-          <p className="text-sm text-muted-foreground max-w-sm mt-2">
-            We design and build premium web applications that ship fast and scale infinitely.
-          </p>
-        </div>
-
-        {/* Links Column */}
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-foreground">Navigation</h4>
-          <ul className="space-y-2">
-            {landingNavLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Legal Column */}
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-foreground">Connect</h4>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>
-              <a href="mailto:hello@solvevo.com" className="transition-colors hover:text-primary">
-                hello@solvevo.com
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/solvevo" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-primary">
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/solvevo" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-primary">
-                Twitter
-              </a>
-            </li>
-          </ul>
-        </div>
+    <footer className="relative bg-muted/30 pt-24 overflow-hidden border-t border-border/50">
+      {/* Huge Background Watermark */}
+      <div className="absolute -bottom-20 left-1/4 text-[25rem] font-bold text-foreground/[0.02] dark:text-white/[0.02] pointer-events-none select-none leading-none z-0 tracking-tighter">
+        OK
       </div>
 
-      {/* Copyright */}
-      <div className="border-t py-6 text-center text-xs text-muted-foreground">
-        <div className="section-padding-x flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="grid gap-12 lg:grid-cols-12 mb-20">
+          
+          {/* Brand Column */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            <Logo />
+            <p className="text-muted-foreground max-w-sm mt-2 text-lg">
+              We design and build premium web applications that ship fast and scale infinitely.
+            </p>
+            <div className="space-y-1">
+              <p className="text-foreground font-medium">hello@solvevo.com</p>
+              <p className="text-muted-foreground">@solvevo</p>
+              <p className="text-muted-foreground mt-2">+1 555-019-2030</p>
+            </div>
+          </div>
+
+          {/* Spacer */}
+          <div className="hidden lg:block lg:col-span-3" />
+
+          {/* Links Columns */}
+          <div className="lg:col-span-4 grid grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-sm font-semibold mb-6 text-foreground">Company</h4>
+              <ul className="space-y-4">
+                <li><Link href="#work" className="text-muted-foreground hover:text-primary transition-colors">Work</Link></li>
+                <li><Link href="#services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
+                <li><Link href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</Link></li>
+                <li><Link href="#blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-sm font-semibold mb-6 text-foreground">Connect</h4>
+              <ul className="space-y-4">
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Twitter</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">LinkedIn</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Dribbble</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="border-t border-border/50 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Solvevo. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="transition-colors hover:text-primary">Privacy Policy</Link>
-            <Link href="/terms" className="transition-colors hover:text-primary">Terms of Service</Link>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
           </div>
         </div>
       </div>
