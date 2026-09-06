@@ -76,13 +76,16 @@ export function HeroSection() {
       </div>
 
       {/* Right side: image */}
-      <div className="hero-image relative flex justify-center items-center h-full w-full">
-        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-border/50">
+      <div className="hero-image relative flex justify-center items-center h-full w-full min-h-[400px]">
+        <div className="relative w-full h-full max-w-lg mx-auto">
+          {/* Subtle premium gradient glow behind the object */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-tr from-primary/40 to-indigo-500/30 rounded-full blur-[100px] -z-10" />
+          
           <Image
-            src="/images/hero-dashboard.png"
-            alt="Dashboard UI"
+            src="/images/solvevo-hub-3d.png"
+            alt="Solvevo Hub 3D"
             fill
-            className="object-cover object-left-top"
+            className="object-contain drop-shadow-2xl"
             priority
           />
         </div>
