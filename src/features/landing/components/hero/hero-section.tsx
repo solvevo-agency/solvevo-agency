@@ -3,14 +3,30 @@
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
+const ROTATING_WORDS = [
+  "Web App",
+  "Mobile App",
+  "Claude service",
+  "Distributed System"
+];
+
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
 
   useGSAP(
     () => {
@@ -52,8 +68,19 @@ export function HeroSection() {
       <div className="flex flex-col gap-6 max-w-xl">
         <h1 className="hero-title text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-foreground leading-[1.1]">
           We ship and build<br />
-          <span className="text-primary">
-            web apps
+          <span className="text-primary inline-flex relative h-[1.1em] overflow-hidden align-top">
+            <AnimatePresence mode="popLayout">
+              <motion.span
+                key={wordIndex}
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="block whitespace-nowrap"
+              >
+                {ROTATING_WORDS[wordIndex]}
+              </motion.span>
+            </AnimatePresence>
           </span>
         </h1>
         <p className="hero-desc text-lg text-muted-foreground mt-2">
