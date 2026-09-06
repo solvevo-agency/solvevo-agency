@@ -44,7 +44,7 @@ export function CtaSection() {
                 "rounded-full px-10 shadow-xl shadow-primary/20 hover:scale-105 transition-transform"
               )}
             >
-              Start project
+              Schedule a Call
             </Link>
           </div>
 

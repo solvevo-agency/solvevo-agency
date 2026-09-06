@@ -40,11 +40,10 @@ export function LandingNavbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive
+                className={`text-sm font-medium transition-colors hover:text-primary ${isActive
                     ? "text-primary font-semibold"
                     : "text-muted-foreground"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -63,7 +62,7 @@ export function LandingNavbar() {
               "hidden md:inline-flex shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-transform",
             )}
           >
-            Get in Touch
+            Schedule a Call
           </Link>
 
           {/* Mobile Nav Sheet */}
@@ -90,11 +89,10 @@ export function LandingNavbar() {
                       key={link.href}
                       href={link.href}
                       onClick={handleLinkClick}
-                      className={`text-base font-medium py-2 transition-colors hover:text-primary ${
-                        isActive
+                      className={`text-base font-medium py-2 transition-colors hover:text-primary ${isActive
                           ? "text-primary font-semibold border-l-2 border-primary pl-2"
                           : "text-muted-foreground"
-                      }`}
+                        }`}
                     >
                       {link.label}
                     </Link>

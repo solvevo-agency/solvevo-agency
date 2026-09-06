@@ -96,7 +96,7 @@ export function HeroSection() {
               "shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] rounded-full px-8",
             )}
           >
-            Start project
+            Schedule a Call
             <ArrowRight className="ml-2 w-4 h-4" />
           </Link>
         </div>
@@ -107,7 +107,7 @@ export function HeroSection() {
         <div className="relative w-full h-full max-w-lg mx-auto">
           {/* Soft blue glow behind the new illustration */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-gradient-to-tr from-blue-400/30 to-indigo-400/20 rounded-full blur-[100px] -z-10" />
-          
+
           <Image
             src="/images/hero-illustration.svg"
             alt="Solvevo Hero Illustration"
