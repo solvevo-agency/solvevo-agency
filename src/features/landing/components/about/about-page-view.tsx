@@ -1,164 +1,183 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
-import { Award, Compass, Eye, ShieldCheck } from "lucide-react";
+import { Check } from "lucide-react";
 
 export function AboutPageView() {
-  const values = [
-    {
-      icon: Compass,
-      title: "Clarity & Direction",
-      desc: "We work closely with founders to map out clear development pipelines. No vagueness, just milestones and ship dates.",
-    },
-    {
-      icon: Award,
-      title: "Technical Excellence",
-      desc: "Our stack (Next.js, TypeScript, Tailwind) is selected for scalability and speed. We write clean, linted, high-quality code.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Reliability & Support",
-      desc: "When we say we ship, we ship. We guarantee bug-free deployments and post-launch support to keep things running.",
-    },
-    {
-      icon: Eye,
-      title: "Transparency",
-      desc: "Weekly check-ins and shared code repos ensure you always know exactly where the project stands. No surprises.",
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
   return (
-    <div className="section-padding-x py-16 lg:py-24 min-h-[70vh] bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col gap-24 lg:gap-32">
-        
-        {/* Banner Section */}
-        <div className="grid gap-16 lg:grid-cols-2 items-center">
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-            className="flex flex-col gap-8"
-          >
-            <motion.div variants={itemVariants}>
-              <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-bold tracking-widest uppercase border border-primary/20">
-                About Us
-              </span>
-            </motion.div>
-            
-            <motion.h1 
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-tight"
-            >
-              We Craft Software That <span className="text-primary">Ships.</span>
-            </motion.h1>
-            
-            <motion.div variants={itemVariants} className="flex flex-col gap-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-              <p>
-                At Solvevo, we believe that great software is defined by its
-                ability to deliver real-world value. We don&apos;t just build
-                specs; we focus on ship speed, UX excellence, and robust backend
-                architectures.
-              </p>
-              <p>
-                Founded by developers who were tired of bloated agency processes,
-                Solvevo was built to be fast, clear, and highly skilled. We act as
-                a trusted extension of your technical or founding team.
-              </p>
-            </motion.div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative aspect-square md:aspect-[4/3] w-full overflow-hidden rounded-[2rem] border border-border bg-card shadow-2xl"
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
-              alt="Solvevo team collaborating"
-              fill
-              className="object-cover transition-transform duration-700 hover:scale-105"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent pointer-events-none" />
-          </motion.div>
+    <div className="bg-background min-h-screen">
+      
+      {/* 1. Hero Section */}
+      <section className="py-24 md:py-32 border-b border-border/40">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center justify-center">
+          <span className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-muted-foreground mb-6">
+            About Us
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
+            We build like it's our own<br />product.
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A senior team of design-minded builders making software that actually helps businesses grow—not stick around to maximize hours.
+          </p>
         </div>
+      </section>
 
-        {/* Agency Values Section */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="flex flex-col gap-16"
-        >
-          <div className="text-center max-w-3xl mx-auto">
-            <motion.div variants={itemVariants}>
-              <span className="inline-block py-1.5 px-4 rounded-full bg-secondary text-secondary-foreground text-xs sm:text-sm font-bold tracking-widest uppercase mb-6 border border-border">
-                Our DNA
+      {/* 2. Mission Section */}
+      <section className="py-24 border-b border-border/40">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16">
+            <div className="flex flex-col gap-6 max-w-lg">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground">
+                Our Mission
               </span>
-            </motion.div>
-            <motion.h2 
-              variants={itemVariants}
-              className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mb-6"
-            >
-              Our Core Values
-            </motion.h2>
-            <motion.p 
-              variants={itemVariants}
-              className="text-lg text-muted-foreground leading-relaxed"
-            >
-              The fundamental principles that guide our development team, our process, and our client relationships.
-            </motion.p>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+                Why Solvevo exists
+              </h2>
+              <div className="text-base text-muted-foreground leading-relaxed flex flex-col gap-4">
+                <p>
+                  Too many businesses get sold a prototype dressed up as a product—something that looks pretty but crumbles under pressure. We exist to do it right the first time.
+                </p>
+                <p>
+                  We started Solvevo to be the opposite of traditional software agencies: fast, transparent, and focused on actual outcomes. No junior developers learning on your dime.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex flex-col gap-6 justify-center">
+              <div className="p-8 rounded-2xl border border-border/40 bg-card hover:shadow-sm transition-shadow">
+                <h3 className="text-lg font-bold text-foreground">
+                  Build software that helps businesses grow.
+                </h3>
+              </div>
+              <div className="p-8 rounded-2xl border border-border/40 bg-card hover:shadow-sm transition-shadow">
+                <h3 className="text-lg font-bold text-foreground">
+                  Be the engineering partner founders and CTOs lean on, speed first.
+                </h3>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid gap-6 md:gap-8 md:grid-cols-2 max-w-6xl mx-auto w-full">
-            {values.map((val, idx) => {
-              const IconComp = val.icon;
-              return (
-                <motion.div 
-                  key={idx} 
-                  variants={itemVariants}
-                  className="group relative p-8 md:p-10 rounded-[2rem] bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden"
-                >
-                  {/* Hover Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
-                  <div className="relative z-10 flex flex-col gap-6 h-full">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-secondary text-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-500 shadow-inner">
-                      <IconComp className="h-7 w-7" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                        {val.title}
-                      </h4>
-                      <p className="text-base text-muted-foreground leading-relaxed">
-                        {val.desc}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+      {/* 3. Principles Section */}
+      <section className="py-24 border-b border-border/40 bg-muted/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
+              Core Values
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+              The principles we hire and build by.
+            </h2>
           </div>
-        </motion.div>
-      </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Ownership", desc: "We act as if the software is our own. We take pride in the final product." },
+              { title: "Craft", desc: "Code is a craft. We believe in high-quality architecture and stunning design." },
+              { title: "Honesty", desc: "Radical transparency. If something isn't right, you'll know immediately." },
+              { title: "Partnership", desc: "We're not order-takers. We are strategic partners driving your business." }
+            ].map((principle, idx) => (
+              <div key={idx} className="p-8 rounded-3xl border border-border/40 bg-card hover:border-primary/20 transition-colors">
+                <h4 className="text-lg font-bold text-foreground mb-3">{principle.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{principle.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Approach Section */}
+      <section className="py-24 border-b border-border/40">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="max-w-md">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
+                Methodology
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+                How we think about building software.
+              </h2>
+            </div>
+            
+            <ul className="flex flex-col gap-6">
+              {[
+                "Fast, reliable tech stack—we optimize for shipping velocity.",
+                "Senior engineers only. The people who scope it, build it.",
+                "Ship true MVPs. No features that don't move the needle.",
+                "You own everything. No lock-in, no hostage code.",
+                "Weekly demos. You always know exactly where the project stands."
+              ].map((item, idx) => (
+                <li key={idx} className="flex gap-4 items-start">
+                  <div className="mt-1 bg-emerald-500/10 p-1 rounded-full text-emerald-500 shrink-0">
+                    <Check className="w-4 h-4" strokeWidth={3} />
+                  </div>
+                  <span className="text-base text-foreground/90 font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Founder Note */}
+      <section className="py-24 border-b border-border/40 bg-muted/10">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+            <div className="w-40 h-40 md:w-56 md:h-56 bg-primary rounded-[2rem] flex items-center justify-center shrink-0 shadow-2xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+              <Image 
+                src="/images/solvevo-transparent.png" 
+                alt="Solvevo" 
+                width={120} 
+                height={120} 
+                className="object-contain brightness-0 invert drop-shadow-md"
+              />
+            </div>
+            
+            <div className="flex flex-col gap-4 max-w-2xl">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground">
+                Founder Note
+              </span>
+              <p className="text-lg md:text-xl font-medium text-foreground leading-relaxed">
+                "Solvevo was built by engineers who grew tired of watching agencies burn through code. We've shipped complex systems, AI products, and mobile apps across industries—learning that quality is everything. When you work with us, you work directly with the people building your product."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Stats Section */}
+      <section className="py-24 border-b border-border/40">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
+              Proven Track Record
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+              The numbers behind the partnership.
+            </h2>
+            <p className="text-base text-muted-foreground mt-4">
+              We're built for long-term relationships—and most of our clients keep working with us long after launch.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border/40 text-center">
+            {[
+              { num: "20+", label: "Apps Shipped" },
+              { num: "5+", label: "Years in Business" },
+              { num: "<1 day", label: "Avg Reply Time" },
+              { num: "4.9", label: "Client Rating" }
+            ].map((stat, idx) => (
+              <div key={idx} className="flex flex-col gap-2">
+                <span className="text-4xl md:text-5xl font-extrabold text-foreground">{stat.num}</span>
+                <span className="text-xs md:text-sm uppercase tracking-wider text-muted-foreground font-semibold">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
     </div>
   );
 }

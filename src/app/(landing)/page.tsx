@@ -5,7 +5,6 @@ import { ProcessSection } from "@/features/landing/components/process/process-se
 import { ValuePropSection } from "@/features/landing/components/value-prop/value-prop-section"
 import { TeamSection } from "@/features/landing/components/team/team-section"
 import { FaqSection } from "@/features/landing/components/faq/faq-section"
-import { CtaSection } from "@/features/landing/components/cta/cta-section"
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <ValuePropSection />
       <TeamSection />
       <FaqSection />
-      <CtaSection />
     </>
   )
 }
