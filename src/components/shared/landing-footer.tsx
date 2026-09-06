@@ -1,12 +1,18 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Logo } from "./logo"
 
 export function LandingFooter() {
   return (
     <footer className="relative bg-muted/30 pt-24 overflow-hidden border-t border-border/50">
-      {/* Huge Background Watermark */}
-      <div className="absolute -bottom-20 left-1/4 text-[25rem] font-bold text-foreground/[0.02] dark:text-white/[0.02] pointer-events-none select-none leading-none z-0 tracking-tighter">
-        OK
+      {/* Brand Logo Watermark */}
+      <div className="absolute top-[70%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-10 dark:opacity-20 pointer-events-none select-none z-0 grayscale">
+        <Image
+          src="/images/solvevo-transparent.png"
+          alt="SV"
+          fill
+          className="object-contain"
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
